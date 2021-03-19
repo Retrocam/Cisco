@@ -1,0 +1,72 @@
+echo "# Cisco" >> README.md 
+git init 
+git add README.md 
+git commit -m "first commit" 
+git branch -M main 
+git remote add origin https://github.com/Retrocam/Cisco.git
+ git push - u origen principal
+ 
+ def tapa1():
+    print ('+-------+-------+-------+')
+   
+def tapa2():
+    print ('|       |       |       |')
+   
+def DisplayBoard(board):
+#
+# la función acepta un parámetro el cual contiene el estado actual del tablero
+# y lo muestra en la consola
+#
+    tapa1()
+    tapa2()
+    print ('|  ',board[0][0],'  |  ',board[1][0],'  |  ', board[2][0],'  |')
+    tapa2()
+    tapa1()
+    tapa2()
+    print ('|  ',board[0][1],'  |  ',board[1][1],'  |  ',board[2][1],'  |')
+    tapa2()
+    tapa1()
+    tapa2()
+    print ('|  ',board[0][2],'  |  ',board[1][2],'  |  ',board[2][2],'  |')
+    tapa2()
+    tapa1()
+
+
+
+def EnterMove(board):
+#
+# la función acepta el estado actual del tablero y pregunta al usuario acerca de su movimiento, 
+# verifica la entrada y actualiza el tablero acorde a la decisión del usuario
+#
+    while True:
+        num = int(input('elige un numero del 1 al 9: \n'))
+        if num > 9 or num <1:
+            continue
+           # num = input('elige un numero del 1 al 9:  \n')
+        if num not in board[0] and num not in board[2] and num not in board[1]:
+            print('esta casilla ya esta ocuapda')
+            continue
+        i = 0                   #me falto el else??? yo creo que si pero igual funciona xD
+        for columna in board:
+            i += 1
+            j = 0
+            for fila in columna:
+                j += 1
+                if num != fila:
+                    continue
+                    
+                else:
+                    board [i-1][j-1]= 'O'
+                    #num = input('esta casilla ya esta ocupada, por favor elige un numero del 1 al 9') cuando este mirando si
+        break        
+board = [[1,4,7],[2,'X',8],[3,6,9]]
+print (DisplayBoard(board))
+EnterMove(board)
+print (DisplayBoard(board))
+
+'''for columna in board:
+    for fila in columna:
+        if fila == columna[1] and fila == columna[2]:
+            break
+    print('gano',fila)
+        '''
